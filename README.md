@@ -3,7 +3,7 @@ Scrape tweets with Tweepy (requires twitter dev account) and does some basic NLP
 
 Goal: Scrape tweets with hashtag "#COVID19" and perform sentiment analysis on them to make some plots.
 
-## Requirements:
+###  Requirements:
 -  Python3.6 or above
 
 ## Quickstart:
