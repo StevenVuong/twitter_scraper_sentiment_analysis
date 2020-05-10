@@ -105,11 +105,14 @@ def extract_query_to_csv(
         ).items(max_tweets):
 
             print(tweet.created_at, tweet.text)
+            tweet.coordinates
+            tweet.retweet_count
+            tweet.favorite_count
             tweet.user.description
             tweet.user.followers_count
             tweet.user.statuses_count
             tweet.user.created_at
-            tweet.ue
+            tweet.user.verified
             #csv_writer.writerow([tweet.created_at, tweet.text.encode('utf-8')])
     
     csv_file.close()
