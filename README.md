@@ -22,18 +22,40 @@ Goal: Scrape tweets with hashtag "#COVID19" and perform sentiment analysis on th
     python3 -m pip install -r ./requirements.txt
     ```
 
-2) 
+2)  Extract tweets: 
+    ```
+    cd ./src/web_scraper/
+    ```
+    1) Authentication:
+    - Create a twitter developer account: https://developer.twitter.com/en 
+    -  Create an app and get api key, api key secret, access key and access_key_secret
+    -  Enter into `./twitter_keys_template.csv` and then rename the file to 
+    `twitter_keys.csv`. <br>
+    **Recommended:** to rename as twitter_keys.csv is in the `.gitignore`.
+    2) Update `./config` with desired query, save path and maximum number of tweets to extract.<br>
+    Query goes: https://twitter.com/<QUERY>
+    3) Run: 
+    ```
+    tweet_scraper.py
+    ```
 
-## Process Diary:
-First Step: Scraping
+    4) We then find the following columns in our saved csvfile:
+        -  "tweet_creation_date", 
+        -  "tweet_text", 
+        -  "tweet_retweet_count",
+        -  "tweet_favourite_count",
+        -  "user_follow_count",
+        -  "user_created_at",
+        -  "user_verified"
 
--  Create a twitter developer account: https://developer.twitter.com/en 
--  Create an app and get api key, api key secret, access key and access_key_secret
--  Enter into `./web_scraper/twitter_keys` template 
+    Note:
+    -  Can only extract tweets up to 7 days prior
+    -  Cap on number of calls we can make to the API. About 900 per 15 mins
+        and automatically sleeps before resuming if limit is exceeded.
+    -  A user account is verified if deemed to be of public interest
 
-Note: 
--  We are only allowed ~900 calls every 15 mins before access is denied
--  We can only extract tweets from the last 7 days
+3) Sentiment Analysis:
 
-Refs:
--  https://realpython.com/twitter-bot-python-tweepy/
+
+### Process Diary: 
+For times of procrastination. -> To be filled
