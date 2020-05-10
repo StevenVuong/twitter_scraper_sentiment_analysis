@@ -31,5 +31,9 @@ First Step: Scraping
 -  Create an app and get api key, api key secret, access key and access_key_secret
 -  Enter into `./web_scraper/twitter_keys` template 
 
+Note: 
+-  We are only allowed ~900 calls every 15 mins before access is denied
+-  We can only extract tweets from the last 7 days
+
 Refs:
 -  https://realpython.com/twitter-bot-python-tweepy/
