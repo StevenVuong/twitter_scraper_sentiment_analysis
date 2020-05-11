@@ -24,21 +24,21 @@ See how many correlate to food shortage.
     ```
 
 2)  Extract tweets: 
-    ```
-    cd ./src/web_scraper/
-    ```
+        ```
+        cd ./src/web_scraper/
+        ```
     1) Authentication:
-    - Create a twitter developer account: https://developer.twitter.com/en 
-    -  Create an app and get api key, api key secret, access key and access_key_secret
-    -  Enter into `./twitter_keys_template.csv` and then rename the file to 
-    `twitter_keys.csv`. <br>
-    **Recommended:** to rename as twitter_keys.csv is in the `.gitignore`.
+        - Create a twitter developer account: https://developer.twitter.com/en 
+        -  Create an app and get api key, api key secret, access key and access_key_secret
+        -  Enter into `./twitter_keys_template.csv` and then rename the file to 
+        `twitter_keys.csv`. <br>
+        **Recommended:** to rename as twitter_keys.csv is in the `.gitignore`.
     2) Update `./config` with desired query, save path and maximum number of tweets to extract.<br>
     Query goes: https://twitter.com/<QUERY>
     3) Run: 
-    ```
-    tweet_scraper.py
-    ```
+        ```
+        tweet_scraper.py
+        ```
 
     4) We then find the following columns in our saved csvfile:
         -  "tweet_creation_date", 
@@ -59,7 +59,7 @@ See how many correlate to food shortage.
 3) Tweet Visualisation and Association of tweets to detect whether #hunger appears.
     We perform our analysis in jupyter notebook and import some custom
     code snippets.
-    
+
     To launch a jupyter notebook:
     ```
     cd ./src/tweet_eda/
