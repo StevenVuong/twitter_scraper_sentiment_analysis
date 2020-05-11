@@ -56,7 +56,10 @@ See how many correlate to food shortage.
         and automatically sleeps before resuming if limit is exceeded.
     -  A user account is verified if deemed to be of public interest
 
-3) Sentiment Analysis:
+3) Tweet Visualisation and Association of tweets to detect whether #hunger appears.
+    We perform our analysis in jupyter notebook and import some custom
+    code snippets.
+    
     To launch a jupyter notebook:
     ```
     cd ./src/tweet_eda/
@@ -67,15 +70,3 @@ See how many correlate to food shortage.
 
     Note:
     - For maintainability purposes, we will be saving jupyter notebooks with no outputs
-
-Compare density of tweetts.
-Maybe extract what relates to food, compare frequency. Use hashtags
-sentiment.
-country names etc..
-Kaggle for cleaning and analysis kernels
-Hashtag for analysis
-Extract and clean tweets first. Look at dataset
-
-
-### Process Diary: 
-For times of procrastination. -> To be filled
