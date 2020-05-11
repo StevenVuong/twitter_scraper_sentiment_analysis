@@ -2,10 +2,15 @@ import re
 import nltk
 from typing import Union, List, Dict
 
-# TODO: Somethiing that checks whether these exist before trying to download
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('averaged_perceptron_tagger')
+# TODO: Fix pathing of this
+try:
+    nltk.data.find('stopwords')
+    nltk.data.find('wordnet')
+    nltk.data.find('averaged_perceptron_tagger')
+except LookupError:
+    nltk.download('stopwords')
+    nltk.download('wordnet')
+    nltk.download('averaged_perceptron_tagger')
 
 from nltk.corpus import stopwords, \
     wordnet
@@ -18,6 +23,7 @@ from text_expressions.emojis_dict import UNICODE_EMO
 from text_expressions.slang import SLANG
 
 
+# TODO: Move this to another fn and pass, otherwise we calculate every time.
 def get_slang_list(slang_docstring:str = SLANG) -> Union[List, Dict]:
     """Get list of slang words from single docstring.
     Args:
@@ -43,7 +49,7 @@ def get_slang_list(slang_docstring:str = SLANG) -> Union[List, Dict]:
 SLANG_LIST, SLANG_MAP_DICT = get_slang_list(SLANG)
 
 
-# TODO: Docstrings
+# TODO: Improve docstrings
 class TextPreprocessor:
     """Class containing typical functions for text preprocessing.
     Can call preprocessing functions as so desired.
