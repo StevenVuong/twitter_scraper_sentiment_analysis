@@ -1,6 +1,5 @@
 import re
 import nltk
-from typing import Union, List, Dict
 
 # TODO: Fix pathing of this
 try:
@@ -20,33 +19,7 @@ from spellchecker import SpellChecker
 
 from text_expressions.emoticons_dict import EMOTICONS
 from text_expressions.emojis_dict import UNICODE_EMO
-from text_expressions.slang import SLANG
-
-
-# TODO: Move this to another fn and pass, otherwise we calculate every time.
-def get_slang_list(slang_docstring:str = SLANG) -> Union[List, Dict]:
-    """Get list of slang words from single docstring.
-    Args:
-        - slang_docstring(str)
-    Return:
-        - SLANG_LIST (List(str))
-        - SLANG_MAP_DICT (Dict(str:str))
-    """
-    slang_map_dict = {}
-    slang_list = []
-
-    for line in slang_docstring.split("\n"):
-        if line != "":
-            cw = line.split("=")[0]
-            cw_expanded = line.split("=")[1]
-            slang_list.append(cw)
-            slang_map_dict[cw] = cw_expanded
-    slang_list = list(set(slang_list))
-    return slang_list, slang_map_dict
-
-
-# TODO: Better way to work with this?
-SLANG_LIST, SLANG_MAP_DICT = get_slang_list(SLANG)
+from text_expressions.slang import SLANG_LIST, SLANG_DICT
 
 
 # TODO: Improve docstrings
@@ -66,7 +39,8 @@ class TextPreprocessor:
         
     def _remove_punctuation(self):
         """Note: We do not include '@' or because it is used to reference 
-        other twitter accounts"""
+        other twitter accounts
+        """
         punctuation_to_remove="\"\!#$%&\'()*+,-./:;<=>?[\\]^_{|}~`"
         self.text = self.text.translate(
             str.maketrans('', '', punctuation_to_remove)
@@ -79,7 +53,8 @@ class TextPreprocessor:
         ])
         
     def _stem(self):
-        """Note: Can also use SnowballStemmer for languages other than English"""
+        """Note: Can also use SnowballStemmer for languages other than English
+        """
         stemmer = PorterStemmer()
         self.text = " ".join([stemmer.stem(word) for word in self.text.split()])
         
@@ -102,7 +77,8 @@ class TextPreprocessor:
         ])
         
     def _remove_emojis(self):
-        """Ref: https://gist.github.com/slowkow/7a7f61f495e3dbb7e3d767f97bd7304b"""
+        """Ref: https://gist.github.com/slowkow/7a7f61f495e3dbb7e3d767f97bd7304b
+        """
         emoji_pattern = re.compile("["
                        u"\U0001F600-\U0001F64F"  # emoticons
                        u"\U0001F300-\U0001F5FF"  # symbols & pictographs
