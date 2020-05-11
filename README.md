@@ -7,7 +7,7 @@ See how many correlate to food shortage.
 ###  Requirements:
 -  Python3.6 or above
 
-## Quickstart:
+## Overview & Getting Started:
 
 1)  Create Virtual Environment and Install Libraries (not necessary but recommended)
     ```
@@ -57,6 +57,16 @@ See how many correlate to food shortage.
     -  A user account is verified if deemed to be of public interest
 
 3) Sentiment Analysis:
+    To launch a jupyter notebook:
+    ```
+    cd ./src/tweet_eda/
+    jupyter notebook .
+    ```
+    Which should prompt your default browser application to open a jupyter notebook
+    instance (http://localhost:8888/notebooks)
+
+    Note:
+    - For maintainability purposes, we will be saving jupyter notebooks with no outputs
 
 Compare density of tweetts.
 Maybe extract what relates to food, compare frequency. Use hashtags
