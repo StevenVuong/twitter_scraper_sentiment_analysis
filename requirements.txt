@@ -3,3 +3,4 @@ pandas
 progress
 jupyterlab
 notebook
+nltk

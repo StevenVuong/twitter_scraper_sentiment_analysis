@@ -2,6 +2,7 @@
 tweets_venv/*
 *.DS_Store
 data/
+wordnet/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
