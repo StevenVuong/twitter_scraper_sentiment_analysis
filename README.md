@@ -2,6 +2,7 @@
 Scrape tweets with Tweepy (requires twitter dev account) and does some basic NLP
 
 Goal: Scrape tweets with hashtag "#COVID19" and perform sentiment analysis on them to make some plots.
+See how many correlate to food shortage.
 
 ###  Requirements:
 -  Python3.6 or above
@@ -44,6 +45,7 @@ Goal: Scrape tweets with hashtag "#COVID19" and perform sentiment analysis on th
         -  "tweet_text", 
         -  "tweet_retweet_count",
         -  "tweet_favourite_count",
+        -  "tweet_hashtags",
         -  "user_follow_count",
         -  "user_created_at",
         -  "user_verified"
@@ -55,6 +57,14 @@ Goal: Scrape tweets with hashtag "#COVID19" and perform sentiment analysis on th
     -  A user account is verified if deemed to be of public interest
 
 3) Sentiment Analysis:
+
+Compare density of tweetts.
+Maybe extract what relates to food, compare frequency. Use hashtags
+sentiment.
+country names etc..
+Kaggle for cleaning and analysis kernels
+Hashtag for analysis
+Extract and clean tweets first. Look at dataset
 
 
 ### Process Diary: 

@@ -132,7 +132,6 @@ def extract_tweets_to_csv(
         ).items(max_tweets):
 
         tweet_hashtags = [txt_dict["text"].split(" ")[0] for txt_dict in tweet.entities["hashtags"]]
-        print(tweet_hashtags)
 
         row = [
             tweet.created_at,
