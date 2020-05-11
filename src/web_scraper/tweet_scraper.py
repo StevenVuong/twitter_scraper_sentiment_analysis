@@ -78,6 +78,7 @@ def extract_tweets_to_csv(
         - "tweet_text", 
         - "tweet_retweet_count",
         - "tweet_favourite_count",
+        - "tweet_hashtags",
         - "user_follow_count",
         - "user_created_at",
         - "user_verified"
@@ -105,6 +106,7 @@ def extract_tweets_to_csv(
         "tweet_text", 
         "tweet_retweet_count",
         "tweet_favourite_count",
+        "tweet_hashtags",
         "user_follow_count",
         "user_created_at",
         "user_verified"
@@ -129,11 +131,15 @@ def extract_tweets_to_csv(
         since=formatted_week_ago
         ).items(max_tweets):
 
+        tweet_hashtags = [txt_dict["text"].split(" ")[0] for txt_dict in tweet.entities["hashtags"]]
+        print(tweet_hashtags)
+
         row = [
             tweet.created_at,
             tweet.text,
             tweet.retweet_count,
             tweet.favorite_count,
+            tweet_hashtags,
             tweet.user.followers_count,
             tweet.user.created_at,
             tweet.user.verified,
