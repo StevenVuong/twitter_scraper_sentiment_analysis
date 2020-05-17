@@ -15,7 +15,7 @@ See how many correlate to food shortage.
     ```
     And access with
     ```
-    source activate ./tweets_venv
+    source activate ./tweets_venv/bin/activate
     ```
     Note: You can exit the virtual environment at any time with `deactivate`.
     Install libraries with

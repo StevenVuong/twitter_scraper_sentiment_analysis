@@ -144,3 +144,70 @@ class TextPreprocessor:
                 
         self.text = " ".join(corrected_text)
     
+
+def stanford_NER(text):
+    """
+    Tokenise words then apply stanford NER
+    """
+
+    # Tokenise words then apply Stanford NER Tagger
+
+    # from nltk.tag import StanfordNERTagger
+    # from nltk.tokenize import word_tokenize
+
+    # st = StanfordNERTagger('/stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
+    #                        '/usr/share/stanford-ner/stanford-ner.jar',
+    #                        encoding='utf-8')
+
+    # tokenized_text = word_tokenize(text)
+    # classified_text = st.tag(tokenized_text)
+
+    # print(classified_text)
+    return stanford_NER_tagged_Text
+
+
+def apply_hashtag_preprocessing(hashtag:str) -> str:
+    """Simply makes lowercase and removes punctuation from hashtags
+    Args:
+        - hashtag (str)
+    Returns:
+        - processed_hashtag (str)
+    """
+    hashtag_txt = TextPreprocessor(hashtag)
+
+    # Apply preprocessing steps
+    hashtag_txt._make_lowercase()
+    hashtag_txt._remove_punctuation()
+    
+    return hashtag_txt.text
+
+
+def apply_tweet_text_preprocessing(text: str) -> str:
+    """Make Text Preprocessor object and apply some basic techniques to preprocess tweet text.
+    Args:
+        - text(str)
+    Returns:
+        - preprocessed_text(str)
+    Note:
+        - We opt for lemmatizing in this use case, just that the example output looks better.
+        Would require more samples to be sure.
+        - We opt for removing emoticons and emojis than converting to words as we want to have
+        a simple model to begin with and conversion may not be so greatly depicted in tweets.
+        May be for other use cases
+        - Keeping slang as it may contain important nuances.
+    """
+    
+    txt_sample = TextPreprocessor(text)
+
+    # Apply preprocessing steps
+    txt_sample._make_lowercase()
+    txt_sample._remove_punctuation()
+    txt_sample._remove_stopwords()
+    txt_sample._lemmatize()
+    txt_sample._remove_emojis()
+    txt_sample._remove_emoticons()
+    txt_sample._remove_urls()
+    txt_sample._remove_html_tags()
+    txt_sample._spellcheck()
+    
+    return txt_sample.text
