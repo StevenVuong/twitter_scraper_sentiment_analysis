@@ -5,3 +5,5 @@ jupyterlab
 notebook
 nltk
 pyspellchecker
+wordcloud
+seaborn
