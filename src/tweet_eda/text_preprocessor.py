@@ -1,5 +1,6 @@
 import re
 import nltk
+from typing import List
 
 # TODO: Fix pathing of this
 try:
@@ -211,3 +212,19 @@ def apply_tweet_text_preprocessing(text: str) -> str:
     txt_sample._spellcheck()
     
     return txt_sample.text
+
+
+def check_keyword_in_words(words: List[str], keywords: List[str]) -> bool:
+    """Check if a list of words contain any word in keywords list. Return True 
+    if so, False otherwise.
+    Args:
+        - words(List[str])
+        - keywords(List[str])
+    Returns:
+        - True if words contains keyword, False otherwise (bool)
+    """
+    # replace all empty lists with ['.']
+    words = [['.'] if not word else word for word in words]
+
+    hashtag_bool_list = [True if word in keywords else False for word in words]
+    return any(hashtag_bool_list)
