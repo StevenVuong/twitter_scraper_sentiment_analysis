@@ -69,3 +69,36 @@ Word vectors are simply vectors of numbers that represent the meaning of a word.
 
 ##### %r:
 old-style string formatting. Converts object to a representation with repr() function.
+
+##### Singular Value Decomposition (SVD):
+Generalises eigendecomposition (eigenfactors of a matrix) to any m*n matrix via an extension of the polar decomposition. 
+
+Reduce a matrix to its constituent parts to make later calculations easier.
+
+##### Embedding Matrix:
+Linear mapping from original space to a real-valued space where entities can have meaningful relationships. We can learn this too.
+Represent relationships in a general way to solve relationship representation problem.
+
+Ultimately a list of words and their corresponding embeddings.
+
+##### Spatial Dropout:
+Drops entire 2D feature maps instead of individual elements. If adjacent pixels within feature maps are strongly correlatetd (usually the case in early convolution layers) then regular dropout will not regularise activations and just result in learning rate decrease. So SpatialDropout2D helps promote independence between feature maps.
+
+##### LSTM:
+LSTM: Preserves information from inputs that has alerady passed through it using the hidden state. Traditional unidirectional only preserves past information as inputs seen are from the past. 
+-  Forget gate: Decides what information iss relevant to keep from prior steps.
+-  Input Gate: Decides what is relevant to add from current stetp
+-  Output Gate: Determines what next hidden state should be
+
+##### Bidirectional LSSTM
+Bidirectional runs inputs two ways, one from past to future and the other from future to past, thus preserving information from both past and future at any point in time. This has the effect of gathering more context around any given token.
+
+##### GRU:
+https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21
+During back propagation, RNNs suffer from vanishing gradient problem (shrinks as it back propagates through time) and becomes a problem as too small gradients don't contribute to learning.
+
+Newer version of RNN. Got rid of cell statte and uses hidden state to transfer information. Only reset and update gate.
+-  Update gate: Decides what information to discard and what to add
+-  Reset gate: Decide how much past informaion to forget
+
+Speedier to train than LSTM slightly as fewerr tensor operations. Depends on use case
