@@ -8,3 +8,4 @@ pyspellchecker
 wordcloud
 seaborn
 sklearn
+xgboost
