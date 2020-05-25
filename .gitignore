@@ -1,3 +1,4 @@
+*.txt
 *twitter_keys.csv
 tweets_venv/*
 *.DS_Store
