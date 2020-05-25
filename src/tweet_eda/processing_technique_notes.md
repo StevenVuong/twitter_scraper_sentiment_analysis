@@ -45,4 +45,27 @@ Convert collection of document matrices to a collection of counts.
 Return a copy of sparse matrix in Compressed Sparse Column format
 
 ##### sklearn make_scorer:
+Make a scorer from a performance metric or loss function.
 
+This factory function wraps scoring functions for use in GridSearchCV and cross_val_score. It takes a score function, such as accuracy_score, mean_squared_error, adjusted_rand_index or average_precision and returns a callable that scores an estimator’s output.
+-  greater_is_better: Whether score_func is a score function (default), meaning high is good, or a loss function, meaning low is good. In the latter case, the scorer object will sign-flip the outcome of the score_func.
+-  needs_probaboolean: Whether score_func requires predict_proba to get probability estimates out of a classifier.
+
+##### sklearn pipeline.Pipeline:
+Sequentially applies a list of transforms and a final estimator. Intermediate steps must be 'transforms', so implement a fit and transform methods. The final estimator only needs to implement fit.
+
+The purpose of the pipeline is to assemble several steps that can be cross-validated together while setting different parameters. 
+
+##### sklearn GridSearch:
+Exhaustive search over specified parameter values for an estimator.
+The parameters of the estimator used to apply these methods are optimized by cross-validated grid-search over a parameter grid.
+
+-  iid: If True, return the average score across folds, weighted by the number of samples in each test set. In this case, the data is assumed to be identically distributed across the folds, and the loss minimized is the total loss per sample, and not the mean loss across the folds.
+-  refit: Refit an estimator using the best found parameters on the whole dataset
+-  cv: Determines the cross-validation splitting strategy.
+
+##### word vectors:
+Word vectors are simply vectors of numbers that represent the meaning of a word.
+
+##### %r:
+old-style string formatting. Converts object to a representation with repr() function.
