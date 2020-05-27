@@ -54,17 +54,28 @@ roc_score = metrics.roc_auc_score(y, oof_preds.ravel())
 print("Overall AUC = {}".format(roc_score))
 
 print("Saving OOF predictions")
-oof_preds = pd.DataFrame(np.column_stack((train_ids, 
-                                                                                   oof_preds.ravel())), columns=['ID_code', 'target'])
-oof_preds.to_csv('../kfolds/{}__{}.csv'.format(MODEL_NAME, str(roc_score)), index=False)
+oof_preds = pd.DataFrame(
+    np.column_stack((train_ids, oof_preds.ravel())),
+    columns=['ID_code', 'target']
+    )
+oof_preds.to_csv('../kfolds/{}__{}.csv'.format(
+    MODEL_NAME, str(roc_score)
+    ), index=False)
 
 print("Saving code to reproduce")
-shutil.copyfile(os.path.basename(__file__), 
-                             '../model_source/{}__{}.py'.format(MODEL_NAME, str(roc_score)))
+shutil.copyfile(
+    os.path.basename(__file__), 
+    '../model_source/{}__{}.py'.format(MODEL_NAME, 
+    str(roc_score))
+    )
 
 print("Saving submission file")
 sample = pd.read_csv('../input/sample_submission.csv')
 sample.target = test_preds.astype(float)
 sample.ID_code = test_ids
-sample.to_csv('../model_predictions/submission_{}__{}.csv'.format(MODEL_NAME,
-                                                                                                                     str(roc_score)), index=False)
+sample.to_csv(
+    '../model_predictions/submission_{}__{}.csv'.format(
+        MODEL_NAME,str(roc_score)
+        ), index=False
+        )
+        
