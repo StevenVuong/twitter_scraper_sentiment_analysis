@@ -1,9 +1,8 @@
 Keras
 *.txt
-*twitter_keys.csv
 tweets_venv/*
 *.DS_Store
-data/
+twitter_keys.csv
 wordnet/
 
 # Byte-compiled / optimized / DLL files
