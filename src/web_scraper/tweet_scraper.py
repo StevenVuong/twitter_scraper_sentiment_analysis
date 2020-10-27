@@ -109,7 +109,10 @@ def extract_tweets_to_csv(
         "tweet_hashtags",
         "user_follow_count",
         "user_created_at",
-        "user_verified"
+        "user_verified",
+        "place",
+        "lang",
+        "coordinates"
         ]
     csv_writer.writerow(header)
 
@@ -127,7 +130,8 @@ def extract_tweets_to_csv(
         twitter_api.search, 
         q=query,
         count=counts,
-        lang="en",
+        #lang="en",
+        geocode="51.555975,-0.011214,2km", #london
         since=formatted_week_ago
         ).items(max_tweets):
 
@@ -142,6 +146,9 @@ def extract_tweets_to_csv(
             tweet.user.followers_count,
             tweet.user.created_at,
             tweet.user.verified,
+            tweet.place,
+            tweet.lang,
+            tweet.coordinates
             ]
         csv_writer.writerow(row)
         bar.next()
